@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=1200, initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Infinity Delivery</title>
 
   <!-- AOS CSS -->
@@ -12,6 +12,10 @@
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       font-family: Arial, sans-serif;
       margin: 0 auto;
@@ -21,9 +25,15 @@
       background: url('background.jpg') no-repeat center center fixed;
       background-size: cover;
       scroll-behavior: smooth;
-      width: 1200px;
-      overflow-x: auto;
+      overflow-x: hidden;
     }
+
+    .main-wrapper {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 15px;
+    }
+
     header {
       position: fixed;
       top: 0;
@@ -39,6 +49,7 @@
       overflow: hidden;
       z-index: 1000;
     }
+
     header::before {
       content: "";
       position: absolute;
@@ -47,16 +58,20 @@
       filter: brightness(0.4);
       z-index: 0;
     }
+
     header > * {
       position: relative;
       z-index: 1;
     }
+
     .logo {
       display: flex;
       align-items: center;
       position: relative;
       padding-left: 60px;
+      flex-wrap: wrap;
     }
+
     .logo img {
       height: 120px;
       margin-right: 15px;
@@ -65,10 +80,13 @@
       border-radius: 10px;
       filter: brightness(1.2);
     }
+
     nav {
       display: flex;
       gap: 15px;
+      flex-wrap: wrap;
     }
+
     .fancy-btn {
       padding: 12px 30px;
       font-size: 1.1rem;
@@ -83,6 +101,7 @@
       position: relative;
       overflow: hidden;
     }
+
     .fancy-btn::after {
       content: "";
       position: absolute;
@@ -94,29 +113,31 @@
       transition: left 0.6s ease;
       z-index: 1;
     }
+
     .fancy-btn:hover::after {
       left: 125%;
     }
 
-    /* Updated button colors */
     nav a.fancy-btn:nth-child(1) {
-      background: #FFD700; /* Yellow */
-      color: #000;
+      background: #FFD700; color: #000;
     }
+
     nav a.fancy-btn:nth-child(1)::after {
       background: linear-gradient(120deg, rgba(255,255,255,0.7), rgba(255,255,255,0));
     }
+
     nav a.fancy-btn:nth-child(2) {
-      background: #000000; /* Black */
-      color: #fff;
+      background: #000000; color: #fff;
     }
+
     nav a.fancy-btn:nth-child(2)::after {
       background: linear-gradient(120deg, rgba(255,255,255,0.3), rgba(255,255,255,0));
     }
+
     nav a.fancy-btn:nth-child(3) {
-      background: #008080; /* Teal */
-      color: #fff;
+      background: #008080; color: #fff;
     }
+
     nav a.fancy-btn:nth-child(3)::after {
       background: linear-gradient(120deg, rgba(255,255,255,0.4), rgba(255,255,255,0));
     }
@@ -131,17 +152,20 @@
       margin: auto;
       color: #000;
     }
+
     section {
       padding: 2em;
       max-width: 800px;
       margin: auto;
     }
+
     section h2 {
       font-size: 2.5em;
       color: #fff;
       text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
       text-align: center;
     }
+
     ul {
       list-style: none;
       padding: 0;
@@ -150,6 +174,7 @@
       justify-content: center;
       gap: 15px;
     }
+
     li {
       background: rgba(255, 255, 255, 0.3);
       backdrop-filter: blur(6px);
@@ -163,10 +188,12 @@
       text-align: center;
       transition: 0.3s ease;
     }
+
     li:hover {
       transform: translateY(-4px);
       box-shadow: 0 6px 16px rgba(0,0,0,0.3);
     }
+
     .contact-details {
       max-width: 500px;
       margin: 1em auto;
@@ -178,11 +205,13 @@
       color: #333;
       text-align: center;
     }
+
     .social-media {
       max-width: 400px;
       margin: 2em auto 3em auto;
       text-align: center;
     }
+
     .social-media a {
       display: inline-block;
       margin: 0 15px;
@@ -191,15 +220,18 @@
       transition: color 0.3s ease;
       text-decoration: none;
     }
+
     .social-media a:hover {
       color: #764ba2;
     }
+
     footer {
       background: #333;
       color: white;
       text-align: center;
       padding: 1em 0;
     }
+
     @keyframes gradientGlow {
       0% {
         background-position: 0% 50%;
@@ -226,12 +258,8 @@
         text-shadow: 0 0 18px rgba(255, 218, 185, 0.8);
         color: #FFDAB9;
       }
-      100% {
-        background-position: 0% 50%;
-        text-shadow: 0 0 8px rgba(255, 215, 0, 0.8);
-        color: #FFD700;
-      }
     }
+
     .logo h1 {
       font-weight: 900;
       font-size: 2.5rem;
@@ -243,87 +271,104 @@
       -webkit-text-fill-color: transparent;
       animation: gradientGlow 10s ease infinite;
     }
+
+    @media screen and (max-width: 768px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      nav {
+        justify-content: center;
+        width: 100%;
+      }
+      .logo {
+        padding-left: 0;
+        justify-content: center;
+      }
+      .logo img {
+        height: 80px;
+      }
+      .fancy-btn {
+        padding: 10px 20px;
+        font-size: 1rem;
+      }
+    }
   </style>
 </head>
 <body>
+  <div class="main-wrapper">
+    <header data-aos="fade-down">
+      <div class="logo" data-aos="zoom-in">
+        <img src="logo.png" alt="Infinity Logo" />
+        <h1>Infinity Services</h1>
+      </div>
+      <nav data-aos="fade-left">
+        <a href="#services" class="fancy-btn">Services</a>
+        <a href="#service-cities" class="fancy-btn">Service Cities</a>
+        <a href="#contact" class="fancy-btn">Contact</a>
+      </nav>
+    </header>
 
-  <header data-aos="fade-down">
-    <div class="logo" data-aos="zoom-in">
-      <img src="logo.png" alt="Infinity Logo" />
-      <h1>Infinity Services</h1>
-    </div>
-    <nav data-aos="fade-left">
-      <a href="#services" class="fancy-btn">Services</a>
-      <a href="#service-cities" class="fancy-btn">Service Cities</a>
-      <a href="#contact" class="fancy-btn">Contact</a>
-    </nav>
-  </header>
-
-  <section id="services" data-aos="fade-up">
-    <h2>Our Services</h2>
-    <ul>
-      <li>🚚 Groceries Delivery</li>
-      <li>🚚 Food Delivery</li>
-      <li>🚚 Vegetables Delivery</li>
-      <li>🚚 Bakery Items Delivery</li>
-      <li>🚚 Fruits Delivery</li>
-      <li>🚚 Meat Delivery</li>
-      <li>📦 Same-Day Delivery</li>
-      <li>🚚 Express Delivery</li>
-      <li>🌐 International Shipping</li>
-      <li>📍 Real-Time Updates</li>
-    </ul>
-  </section>
-
-  <section id="why-choose-us" data-aos="fade-left">
-    <h2>Why Choose Us?</h2>
-    <ul>
-      <li>✔ 24/7 Customer Support</li>
-      <li>✔ Real-time package tracking</li>
-      <li>✔ User-Friendly Applications</li>
-      <li>✔ Eco-friendly delivery options</li>
-    </ul>
-  </section>
-
-  <section id="service-cities" data-aos="fade-right">
-    <h2>Service Cities</h2>
-    <ul>
-      <li>Atmakur</li>
-      <li>Karevena</li>
-      <li>NallaKaluva</li>
-      <li>Amalapuram</li>
-      <li>Venkatapuram</li>
-      <li>Sripati rao peta</li>
-      <li>Duddyala</li>
-      <li>Iskyala</li>
-      <li>Siddepalle</li>
-      <li>Kurukunda</li>
-    </ul>
-  </section>
-
-  <section id="contact" data-aos="fade-up">
-    <h2>Contact Us</h2>
-    <div class="contact-details">
-      <p><strong>Phone:</strong> +91-xxxxxxxxxx</p>
-      <p><strong>Email:</strong> ceo@infinitydeliveries.com</p>
-      <p><strong>Directors:</strong></p>
+    <section id="services" data-aos="fade-up">
+      <h2>Our Services</h2>
       <ul>
-        <li>Mr. Momin Salman Ali</li>
-        <li>Mr. Mohammed Noor</li>
+        <li>🚚 Groceries Delivery</li>
+        <li>🚚 Food Delivery</li>
+        <li>🚚 Vegetables Delivery</li>
+        <li>🚚 Bakery Items Delivery</li>
+        <li>🚚 Fruits Delivery</li>
+        <li>🚚 Meat Delivery</li>
+        <li>📦 Same-Day Delivery</li>
+        <li>🚚 Express Delivery</li>
+        <li>🌐 International Shipping</li>
+        <li>📍 Real-Time Updates</li>
       </ul>
-    </div>
-  </section>
+    </section>
 
-  <div class="social-media" data-aos="zoom-in">
-    <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+    <section id="why-choose-us" data-aos="fade-left">
+      <h2>Why Choose Us?</h2>
+      <ul>
+        <li>✔ 24/7 Customer Support</li>
+        <li>✔ Real-time package tracking</li>
+        <li>✔ User-Friendly Applications</li>
+        <li>✔ Eco-friendly delivery options</li>
+      </ul>
+    </section>
+
+    <section id="service-cities" data-aos="fade-right">
+      <h2>Service Cities</h2>
+      <ul>
+        <li>Atmakur</li>
+        <li>Karevena</li>
+        <li>NallaKaluva</li>
+        <li>Amalapuram</li>
+        <li>Venkatapuram</li>
+        <li>Sripati rao peta</li>
+        <li>Duddyala</li>
+        <li>Iskyala</li>
+        <li>Siddepalle</li>
+        <li>Kurukunda</li>
+      </ul>
+    </section>
+
+    <section id="contact" data-aos="fade-up">
+      <h2>Contact Us</h2>
+      <div class="contact-details">
+        <p><strong>Taqwa technologies Pvt.Ltd</strong></p>
+        <p><strong>Phone:</strong> +91-xxxxxxxxxx</p>
+        <p><strong>Contact Us:</strong> ceo@infinitydeliveries.com</p>
+        <p><strong>Directors:</strong></p>
+        <ul>
+          <li>Mr. Momin Salman Ali</li>
+          <li>Mr. B.Mohammed Noor</li>
+        </ul>
+      </div>
+    </section>
+
+    <footer>
+      <p>&copy; Infinity Deliveries. All rights reserved.</p>
+    </footer>
   </div>
-
-  <footer>
-    <p>&copy; Infinity Deliveries. All rights reserved.</p>
-  </footer>
 
   <!-- AOS JS -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
