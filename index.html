@@ -9,7 +9,8 @@
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
   <!-- Font Awesome CDN for social icons -->
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
 
   <style>
     * {
@@ -293,40 +294,49 @@
         font-size: 1rem;
       }
     }
-.whatsapp-float {
+
+    .whatsapp-float {
   position: fixed;
-  width: 60px;
-  height: 60px;
   bottom: 20px;
   right: 20px;
-  background-color: #25D366;
+  width: 60px;
+  height: 60px;
+  background: rgba(37, 211, 102, 0.85); /* semi-transparent */
   color: #fff;
   border-radius: 50%;
   text-align: center;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
   z-index: 1000;
   display: flex;
   justify-content: center;
   align-items: center;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4), inset 0 -4px 8px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  backdrop-filter: blur(4px);
   animation: pulseWhatsApp 2s infinite;
 }
 
-.whatsapp-float img {
-  width: 34px;
-  height: 34px;
+.whatsapp-float:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.5), inset 0 -4px 10px rgba(0, 0, 0, 0.2);
+  background: rgba(37, 211, 102, 0.95);
 }
 
-@keyframes pulseWhatsApp {
-  0% {
-    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
-  }
-  70% {
-    box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
-  }
-  100% {
-    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
-  }
+.whatsapp-float i {
+  font-size: 30px;
 }
+
+
+    @keyframes pulseWhatsApp {
+      0% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+      }
+      70% {
+        box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+      }
+      100% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+      }
+    }
 
   </style>
 </head>
@@ -387,29 +397,31 @@
     </section>
 
     <section id="contact" data-aos="fade-up">
-  
-  <div class="contact-container">
-    <div class="map-box">
-        </div>
-<h2>Contact Us</h2>
-    <div class="contact-details">
-      <p><strong>Taqwa Technologies Pvt.Ltd (CIN:U47912AP2025PTC119793)</strong></p>
-      <p><strong>Phone:</strong>9000802981</p>
-     <p><strong>Contact Us:</strong> <a href="mailto:ceo@infinitydeliveries.com">ceo@infinitydeliveries.com</a></p>
-      <p><strong>Directors:</strong></p>
-      <ul>
-        <li>Mr. Momin Salman Ali</li>
-        <li>Mr. B.Mohammed Noor</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
+      <h2>Contact Us</h2>
+      <div class="contact-details">
+        <p><strong>Taqwa Technologies Pvt.Ltd (CIN:U47912AP2025PTC119793)</strong></p>
+        <p><strong>Phone:</strong>9000802981</p>
+        <p><strong>Contact Us:</strong> <a href="mailto:ceo@infinitydeliveries.com">ceo@infinitydeliveries.com</a></p>
+        <p><strong>Directors:</strong></p>
+        <ul>
+          <li>Mr. Momin Salman Ali</li>
+          <li>Mr. B.Mohammed Noor</li>
+        </ul>
+      </div>
+    </section>
 
     <footer>
       <p>&copy; Infinity Deliveries. All rights reserved.</p>
     </footer>
   </div>
+
+  <!-- WhatsApp Button -->
+  <a href="https://wa.me/919000802981?text=Hello%20Infinity%20Services%2C%20I%20would%20like%20to%20know%20more%20about%20your%20services." 
+     target="_blank" 
+     class="whatsapp-float" 
+     title="Chat on WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
 
   <!-- AOS JS -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
@@ -420,9 +432,4 @@
     });
   </script>
 </body>
-<a href="https://wa.me/9000802981" target="_blank" class="whatsapp-float" title="Chat with us on WhatsApp">
-  <img src="https://img.icons8.com/color/48/000000/whatsapp--v1.png" alt="WhatsApp Chat" />
-</a>
-
-
 </html>
