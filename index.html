@@ -293,6 +293,41 @@
         font-size: 1rem;
       }
     }
+.whatsapp-float {
+  position: fixed;
+  width: 60px;
+  height: 60px;
+  bottom: 20px;
+  right: 20px;
+  background-color: #25D366;
+  color: #fff;
+  border-radius: 50%;
+  text-align: center;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: pulseWhatsApp 2s infinite;
+}
+
+.whatsapp-float img {
+  width: 34px;
+  height: 34px;
+}
+
+@keyframes pulseWhatsApp {
+  0% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+  }
+}
+
   </style>
 </head>
 <body>
@@ -352,18 +387,24 @@
     </section>
 
     <section id="contact" data-aos="fade-up">
-      <h2>Contact Us</h2>
-      <div class="contact-details">
-        <p><strong>Taqwa technologies Pvt.Ltd</strong></p>
-        <p><strong>Phone:</strong> +91-xxxxxxxxxx</p>
-        <p><strong>Contact Us:</strong> ceo@infinitydeliveries.com</p>
-        <p><strong>Directors:</strong></p>
-        <ul>
-          <li>Mr. Momin Salman Ali</li>
-          <li>Mr. B.Mohammed Noor</li>
-        </ul>
-      </div>
-    </section>
+  
+  <div class="contact-container">
+    <div class="map-box">
+        </div>
+<h2>Contact Us</h2>
+    <div class="contact-details">
+      <p><strong>Taqwa Technologies Pvt.Ltd (CIN:U47912AP2025PTC119793)</strong></p>
+      <p><strong>Phone:</strong> +91-9000802981</p>
+     <p><strong>Contact Us:</strong> <a href="mailto:ceo@infinitydeliveries.com">ceo@infinitydeliveries.com</a></p>
+      <p><strong>Directors:</strong></p>
+      <ul>
+        <li>Mr. Momin Salman Ali</li>
+        <li>Mr. B.Mohammed Noor</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
 
     <footer>
       <p>&copy; Infinity Deliveries. All rights reserved.</p>
@@ -379,4 +420,9 @@
     });
   </script>
 </body>
+<a href="https://wa.me/919000802981" target="_blank" class="whatsapp-float" title="Chat with us on WhatsApp">
+  <img src="https://img.icons8.com/color/48/000000/whatsapp--v1.png" alt="WhatsApp Chat" />
+</a>
+
+
 </html>
